@@ -20,6 +20,15 @@ Route::get('/calendar', function () {
     return view('calendar'); // resources/views/login.blade.php
 });
 
+Route::get('/discover', function () {
+    return view('discover'); // resources/views/login.blade.php
+});
+
+Route::get('/view/profile', function () {
+    return view('profile'); // resources/views/login.blade.php
+});
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

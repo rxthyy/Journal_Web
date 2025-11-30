@@ -20,11 +20,11 @@
                 <span class="nav-title">Daily Log</span>
             </div>
             <ul class="nav-menu" id="navMenu">
-                <li class="nav-item"><a href="calendar.html" class="nav-link active">Calendar</a></li>
-                <li class="nav-item"><a href="discover.html" class="nav-link">Discover</a></li>
-                <li class="nav-item"><a href="profile.html" class="nav-link">Profile</a></li>
+                <li class="nav-item"><a href="{{ url('calendar') }}" class="nav-link active">Calendar</a></li>
+                <li class="nav-item"><a href="{{ url('discover') }}" class="nav-link">Discover</a></li>
+                <li class="nav-item"><a href="{{ url ('view/profile') }}" class="nav-link">Profile</a></li>
                 <li class="nav-item"><a href="#" class="nav-link"><i class="fa-solid fa-bell"></i></a></li>
-                <li class="nav-item"><a href="index.html" class="nav-link"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                <li class="nav-item"><a href="{{ url('welcome') }}" class="nav-link"><i class="fa-solid fa-right-from-bracket"></i></a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
