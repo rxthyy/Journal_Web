@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Daily Log</title>
-    <link rel="icon" type="image/png" href="img/pen-logo.svg">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/pen-logo.svg') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,14 +17,12 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <img src="img/pen-logo.svg" alt="Daily Log" class="nav-logo">
+                <img src="{{ asset('img/pen-logo.svg') }}" alt="Daily Log" class="nav-logo">
                 <span class="nav-title">Daily Log</span>
             </div>
             <ul class="nav-menu" id="navMenu">
-                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="index.html#community" class="nav-link">Community</a></li>
-                <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="{{ url('/custom-login') }}" class="nav-link">Login</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -41,30 +39,38 @@
                 <h1 class="auth-title">Create Account</h1>
                 <p class="auth-subtitle">Join Daily Log and start sharing your journey</p>
                 
-                <form class="auth-form">
+                <!-- Display validation errors -->
+                @if ($errors->any())
+                    <div style="background-color: #fee; border: 1px solid #fcc; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+                        <ul style="margin: 0; padding-left: 1.5rem; color: #c00;">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                
+                <form class="auth-form" method="POST" action="{{ route('register') }}">
+                    @csrf
+                    
                     <div class="input-box">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Full Name" required>
+                        <input type="text" name="name" placeholder="Full Name" value="{{ old('name') }}" required autofocus>
                     </div>
 
                     <div class="input-box">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="Email Address" required>
-                    </div>
-                    
-                    <div class="input-box">
-                        <i class="fa-solid fa-at"></i>
-                        <input type="text" placeholder="Username" required>
+                        <input type="email" name="email" placeholder="Email Address" value="{{ old('email') }}" required>
                     </div>
                     
                     <div class="input-box">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Password" id="password" required>
+                        <input type="password" name="password" placeholder="Password" required>
                     </div>
 
                     <div class="input-box">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Confirm Password" id="confirmPassword" required>
+                        <input type="password" name="password_confirmation" placeholder="Confirm Password" required>
                     </div>
 
                     <div class="terms-agreement">
@@ -74,33 +80,18 @@
                         </label>
                     </div>
 
-                    <button type="button" class="btn btn-primary btn-full" onclick="handleRegister()">
+                    <button type="submit" class="btn btn-primary btn-full">
                         Create Account
                     </button>
 
                     <div class="auth-footer">
-                        <p>Already have an account? <a href="{{ asset('custom-login') }}" class="auth-link">Login here</a></p>
+                        <p>Already have an account? <a href="{{ url('/custom-login') }}" class="auth-link">Login here</a></p>
                     </div>
                 </form>
             </div>
         </div>
     </section>
 
-    <script src="{{ asset('js/navigation.js') }} "></script>
-
-    <script>
-        function handleRegister() {
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            
-            if (password !== confirmPassword) {
-                alert('Passwords do not match!');
-                return;
-            }
-            
-            // Redirect to calendar (in real app, this would create account first)
-            location.href = 'calendar.html';
-        }
-    </script>
+    <script src="{{ asset('js/navigation.js') }}"></script>
 </body>
 </html>

@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -21,9 +22,7 @@
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li class="nav-item"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="{{ url('/#about') }}" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="{{ url('/#community') }}" class="nav-link">Community</a></li>
-                <li class="nav-item"><a href="{{ url('/login') }}" class="nav-link nav-btn">Login</a></li>
+                <li class="nav-item"><a href="{{ url('/custom-login') }}" class="nav-link active">Login</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -40,11 +39,24 @@
                 <h1 class="auth-title">Welcome Back</h1>
                 <p class="auth-subtitle">Login to continue your journey</p>
                 
-                <form class="auth-form" method="POST" action="{{ url('/calendar') }}">
+                <!-- Show validation errors -->
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                <!-- Login Form - FIXED ACTION -->
+                <form class="auth-form" method="POST" action="{{ route('login') }}">
                     @csrf
+                    
                     <div class="input-box">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="text" name="username" placeholder="Username" required>
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" name="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
                     </div>
                     
                     <div class="input-box">
@@ -57,7 +69,7 @@
                             <input type="checkbox" name="remember">
                             <span>Remember me</span>
                         </label>
-                        <a href="#" class="forgot-link">Forgot Password?</a>
+                        <a href="{{ route('password.request') }}" class="forgot-link">Forgot Password?</a>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-full">

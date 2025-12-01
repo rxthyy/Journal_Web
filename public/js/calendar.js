@@ -190,8 +190,7 @@
                 `;
                 
                 entryDiv.addEventListener('click', () => {
-                    alert(`Opening entry: ${entry.title}\n\nWould navigate to entry-view.html?id=${entry.id}`);
-                });
+                    });
                 
                 modalBody.appendChild(entryDiv);
             });
@@ -208,7 +207,6 @@
         if (createEntryBtn) {
             createEntryBtn.onclick = () => {
                 const formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-                alert(`Creating entry for ${dateStr}\n\nWould navigate to entry-create.html?date=${formattedDate}`);
             };
         }
         
@@ -301,7 +299,6 @@
 
     if (fabBtn) {
         fabBtn.addEventListener('click', () => {
-            alert('Creating new entry for today!\n\nWould navigate to entry-create.html');
         });
     }
 
@@ -334,4 +331,30 @@
         initCalendar();
     }
     
+    // Modal elements
+const entryModal = document.getElementById('entryModal');
+const entryModalClose = document.getElementById('entryModalClose');
+const entryDateInput = document.getElementById('entryDate');
+
+// Open modal when a day is clicked
+document.querySelectorAll('.calendar-day').forEach(day => {
+    day.addEventListener('click', function() {
+        const date = this.dataset.date; // make sure each day div has data-date="YYYY-MM-DD"
+        entryDateInput.value = date; // fill hidden input
+        entryModal.style.display = 'block';
+    });
+});
+
+// Close modal
+entryModalClose.addEventListener('click', function() {
+    entryModal.style.display = 'none';
+});
+
+// Close when clicking outside modal
+window.addEventListener('click', function(e) {
+    if (e.target == entryModal) {
+        entryModal.style.display = 'none';
+    }
+});
+
 })();
