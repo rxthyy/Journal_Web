@@ -9,8 +9,8 @@ export default defineConfig({
     }),
   ],
   preview: {
-    host: true, // allow all hosts
     port: parseInt(process.env.PORT) || 4173,
     strictPort: true,
+    allowedHosts: ['public-pages-xsey.onrender.com'], // <-- add your Render hostname here
   },
 })
