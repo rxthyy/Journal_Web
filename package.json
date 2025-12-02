@@ -4,8 +4,8 @@
     "private": true,
     "type": "module",
     "scripts": {
-      "build": "vite build",
-      "dev": "vite",
+      "build": "yarn vite build",
+      "dev": "yarn vite",
       "start": "node server.js"
     },
     "dependencies": {
