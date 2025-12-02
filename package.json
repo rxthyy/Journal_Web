@@ -6,7 +6,6 @@
         "build": "vite build",
         "dev": "vite",
         "start": "node server.js"
-
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
@@ -21,6 +20,7 @@
         "vite": "^7.0.7"
     },
     "dependencies": {
+        "express": "^5.2.1",
         "serve": "^14.2.5"
     }
 }
