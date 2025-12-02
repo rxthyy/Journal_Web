@@ -8,9 +8,10 @@ export default defineConfig({
       refresh: true,
     }),
   ],
+  base: './', // ensures static assets are served correctly from dist
   preview: {
     port: parseInt(process.env.PORT) || 4173,
     strictPort: true,
-    allowedHosts: ['public-pages-xsey.onrender.com'], // <-- add your Render hostname here
+    allowedHosts: ['public-pages-xsey.onrender.com'],
   },
 })
