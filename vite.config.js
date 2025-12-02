@@ -8,7 +8,7 @@ export default defineConfig({
       refresh: true,
     }),
   ],
-  base: './', // ensures static assets are served correctly from dist
+  base: './', // ensures assets are served correctly from dist
   preview: {
     port: parseInt(process.env.PORT) || 4173,
     strictPort: true,
