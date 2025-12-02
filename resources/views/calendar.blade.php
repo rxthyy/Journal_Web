@@ -41,67 +41,74 @@
         </div>
     </nav>
 
-    <section class="calendar-section">
-    <div class="container">
-        <!-- Calendar on LEFT -->
-        <div class="calendar-wrapper">
-            <div class="calendar">
-                <div class="calendar-header">
-                    <span class="month-picker" id="month-picker">Loading...</span>
-                    <div class="year-picker">
-                        <span class="year-change" id="prev-year"><i class="fa-solid fa-chevron-left"></i></span>
-                        <span id="year">...</span>
-                        <span class="year-change" id="next-year"><i class="fa-solid fa-chevron-right"></i></span>
+        <section class="calendar-section">
+        <div class="container">
+            <!-- Calendar on LEFT -->
+            <div class="calendar-wrapper">
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <span class="month-picker" id="month-picker">Loading...</span>
+                        <div class="year-picker">
+                            <span class="year-change" id="prev-year"><i class="fa-solid fa-chevron-left"></i></span>
+                            <span id="year">...</span>
+                            <span class="year-change" id="next-year"><i class="fa-solid fa-chevron-right"></i></span>
+                        </div>
                     </div>
+                    <div class="calendar-body">
+                        <div class="calendar-week-day">
+                            <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                        </div>
+                        <div class="calendar-days"></div>
+                    </div>
+                    <div class="calendar-footer">
+                        <div class="calendar-legend">
+                            <span class="legend-label">Legend:</span>
+                            <div class="legend-item"><span class="legend-dot public-dot"></span><span>Public</span></div>
+                            <div class="legend-item"><span class="legend-dot friends-dot"></span><span>Friends</span></div>
+                            <div class="legend-item"><span class="legend-dot private-dot"></span><span>Private</span></div>
+                        </div>
+                        <div class="toggle">
+                            <span>Dark Mode</span>
+                            <div class="dark-mode-switch"><div class="dark-mode-switch-ident"></div></div>
+                        </div>
+                    </div>
+                    <div class="month-list"></div>
                 </div>
-                <div class="calendar-body">
-                    <div class="calendar-week-day">
-                        <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
-                    </div>
-                    <div class="calendar-days"></div>
-                </div>
-                <div class="calendar-footer">
-                    <div class="calendar-legend">
-                        <span class="legend-label">Legend:</span>
-                        <div class="legend-item"><span class="legend-dot public-dot"></span><span>Public</span></div>
-                        <div class="legend-item"><span class="legend-dot friends-dot"></span><span>Friends</span></div>
-                        <div class="legend-item"><span class="legend-dot private-dot"></span><span>Private</span></div>
-                    </div>
-                    <div class="toggle">
-                        <span>Dark Mode</span>
-                        <div class="dark-mode-switch"><div class="dark-mode-switch-ident"></div></div>
-                    </div>
-                </div>
-                <div class="month-list"></div>
             </div>
-        </div>
 
-        <!-- Stats on RIGHT -->
-        <div class="calendar-stats">
-            <div class="stat-card">
-                <i class="fa-solid fa-book"></i>
-                <div class="stat-info">
-                    <span class="stat-value" id="monthEntries">0</span>
-                    <span class="stat-label">Entries This Month</span>
+            <!-- Stats on RIGHT -->
+            <div class="calendar-stats">
+                <div class="stat-card">
+                    <i class="fa-solid fa-book"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="monthEntries">0</span>
+                        <span class="stat-label">Entries This Month</span>
+                    </div>
                 </div>
-            </div>
-            <div class="stat-card">
-                <i class="fa-solid fa-fire"></i>
-                <div class="stat-info">
-                    <span class="stat-value" id="currentStreak">0</span>
-                    <span class="stat-label">Day Streak</span>
+                <div class="stat-card">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="totalEntries">0</span>
+                        <span class="stat-label">Total Entries</span>
+                    </div>
                 </div>
-            </div>
-            <div class="stat-card">
-                <i class="fa-solid fa-face-smile"></i>
-                <div class="stat-info">
-                    <span class="stat-value" id="topMood">😊</span>
-                    <span class="stat-label">Most Common Mood</span>
+                <div class="stat-card">
+                    <i class="fa-solid fa-fire"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="currentStreak">0</span>
+                        <span class="stat-label">Day Streak</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-face-smile"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="topMood">😊</span>
+                        <span class="stat-label">Most Common Mood</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
     <!-- FAB Button to open create modal -->
