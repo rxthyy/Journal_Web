@@ -20,6 +20,7 @@ Route::group([], function () {
     Route::post('/custom-login', [LoginController::class, 'authenticate'])->name('login');
 });
 
+
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Protected routes (require authentication)
@@ -35,9 +36,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/calendar/entries-month', [EntryController::class, 'getEntriesByMonth'])
     ->middleware('auth');
     
+    
     Route::get('/entry/create', [EntryController::class, 'create'])->name('entry.create');
     Route::post('/entry/store', [EntryController::class, 'store'])->name('entry.store');
     Route::get('/entry/view/{id}', [EntryController::class, 'show'])->name('entry.view');
+    // Route::get('/api/entries/month', [EntryController::class, 'getEntriesByMonth'])->name('entries.month');
     
     // Discover
     Route::get('/discover', function () {
@@ -57,5 +60,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Remove this line - it conflicts with your custom auth routes
-// require __DIR__.'/auth.php';
+Route::get('/forgot-password', function () {
+    return view('auth.forgot-password');
+})->name('password.request');
+
+Route::post('/forgot-password', function () {
+    // Handle password reset logic here
+})->name('password.email');
+
+require __DIR__.'/auth.php';
