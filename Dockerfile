@@ -2,7 +2,11 @@ FROM php:8.2-apache
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
-    zip unzip git curl nodejs npm
+    zip unzip git curl nodejs npm \
+    default-mysql-client
+
+# Install PHP extensions
+RUN docker-php-ext-install pdo pdo_mysql
 
 # Enable Apache rewrite
 RUN a2enmod rewrite
