@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Calendar - Daily Log</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('img/pen-logo.svg') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="icon" type="image/svg+xml" href="/img/pen-logo.svg">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -209,7 +209,8 @@
         </div>
     </div>
 
-    <script src="{{ asset('js/navigation.js') }}"></script>
-    <script src="{{ asset('js/calendar-modal.js') }}"></script>
+    <script src="/js/navigation.js"></script>
+
+    <script src="/js/calendar-modal.js"></script>
 </body>
 </html>
