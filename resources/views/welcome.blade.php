@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Log - Share Your Journey</title>
     <link rel="icon" type="image/svg+xml" href="{{ asset('img/pen-logo.svg') }}">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,5 +84,6 @@
         </div>
     </footer>
 
+    <script src="{{ asset('js/navigation.js') }}"></script>
 </body>
 </html>
